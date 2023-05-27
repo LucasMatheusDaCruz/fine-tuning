@@ -1,0 +1,225 @@
+{"prompt": "Explique como fazer uma requisição GET para obter informações sobre um local de atendimento específico usando a API uMov.me.", "completion": "Para fazer uma requisição GET e obter informações sobre um local de atendimento específico usando a API uMov.me, você deve usar a seguinte URL: `https://api.umov.me/CenterWeb/api/{$apiKey}/serviceLocal/{$codigo}.xml`. Substitua `{$apiKey}` pela chave de API do ambiente uMov.me e `{$codigo}` pelo código do local de atendimento desejado. A resposta será retornada no formato XML."}
+
+{"prompt": "Descreva os limites e restrições de requisições simultâneas na API do uMov.me.", "completion": "A API do uMov.me impõe um limite máximo de 4 conexões por segundo. Esse bloqueio é baseado no número de requisições por IP e TOKEN. Se um determinado IP ou TOKEN realizar 6 chamadas simultâneas no mesmo segundo para a API uMov.me, apenas as cinco primeiras requisições serão processadas, observando a ordem de chegada. A sexta requisição será bloqueada."}
+
+{"prompt": "Explique o que é um Custom Entity na API uMov.me e como ele é usado.", "completion": "Na API uMov.me, um Custom Entity é um cadastro customizável que permite a criação e manutenção de entidades personalizadas e seus valores. Ele é usado para consultar os cadastros customizáveis, bem como consultar, incluir e atualizar os registros dos cadastros customizáveis."}
+
+{"prompt": "Como posso buscar uma lista de todos os Custom Entities usando a API uMov.me?", "completion": "Para buscar uma lista de todos os Custom Entities usando a API uMov.me, você deve fazer uma requisição GET para a seguinte URL: `/CenterWeb/api/{$apiKey}/customEntity.xml`. Substitua `{$apiKey}` pela sua chave de API do ambiente uMov.me. A resposta será retornada no formato XML."}
+
+{"prompt": "Como posso buscar um Custom Entity específico usando a API uMov.me?", "completion": "Para buscar um Custom Entity específico usando a API uMov.me, você deve fazer uma requisição GET para a seguinte URL: `/CenterWeb/api/{$apiKey}/customEntity/{$id}.xml`. Substitua `{$apiKey}` pela sua chave de API do ambiente uMov.me e `{$id}` pelo ID do Custom Entity que você deseja consultar. A resposta será retornada no formato XML."}
+
+{"prompt": "É possível criar ou editar um Custom Entity através da API uMov.me?", "completion": "Não é possível criar ou editar um Custom Entity através da API uMov.me. A API permite apenas consultar os cadastros customizáveis. No entanto, é possível incluir e editar os registros dos cadastros customizáveis."}
+
+{"prompt": "Como posso buscar uma lista de Custom Entities com uma descrição específica usando a API uMov.me?", "completion": "Para buscar uma lista de Custom Entities com uma descrição específica usando a API uMov.me, você deve fazer uma requisição GET para a seguinte URL: `/CenterWeb/api/{$apiKey}/customEntity.xml?description=134`. Substitua `{$apiKey}` pela sua chave de API do ambiente uMov.me e `134` pelo valor da descrição que você deseja pesquisar. A resposta será retornada no formato XML."}
+
+{"prompt": "Quais são os campos de um Custom Entity e suas respectivas descrições?", "completion": "Os campos de um Custom Entity são:\n\n1. id: Identificador interno do cadastro customizável no uMov.me.\n2. description: Descrição do cadastro customizável.\n3. alternativeIdentifier: Identificador que possibilita a relação com outros sistemas(legados).\n4. active: Indica se um cadastro customizável está no estado ativo ou não. Pode receber valores 'true' ou 'false'.\n5. labelDescription: Label que será utilizado para a descrição do registro no cadastro customizável.\n6. descriptionAlternativeIdentifier: Label que será utilizado para o identificador alternativo do registro no cadastro customizável.\n7. customFields: Lista com os campos customizáveis vinculados no cadastro customizável."}
+
+{"prompt": "O que é um customField e qual é a sua relação com um Custom Entity?", "completion": "Um customField é um campo customizável vinculado a um Custom Entity. Ele representa um atributo personalizado dentro de um cadastro customizável e pode ser de diferentes tipos, como texto, numérico, data, entre outros. Os customFields são usados para armazenar informações adicionais e específicas relacionadas a um Custom Entity, permitindo uma maior flexibilidade e personalização na estrutura de dados."}
+
+{"prompt": "Como filtrar a busca por lista de Custom Entities usando parâmetros na API uMov.me?", "completion": "Para filtrar a busca por lista de Custom Entities usando parâmetros na API uMov.me, adicione os parâmetros desejados à URL da requisição GET. Por exemplo, para pesquisar por um determinado cadastro customizável com descrição = 134, use a seguinte URL: `/CenterWeb/api/{$apiKey}/customEntity.xml?description=134`. Substitua `{$apiKey}` pela sua chave de API do ambiente uMov.me e `134` pelo valor da descrição que você deseja pesquisar. A resposta será retornada no formato XML."}
+
+{"prompt": "Como é a resposta de uma requisição GET bem-sucedida ao buscar uma lista de Custom Entities na API uMov.me?", "completion": "A resposta de uma requisição GET bem-sucedida ao buscar uma lista de Custom Entities na API uMov.me será uma mensagem em XML que contém o total de registros retornados e uma lista simples, sem detalhes de cada registro retornado. Para cada entrada, a resposta inclui o ID do registro no uMov.me e o link, que pode ser usado para recuperar os dados específicos desse registro."}
+
+{"prompt": "Quais são as principais funcionalidades da API uMov.me?", "completion": "A API uMov.me oferece uma variedade de funcionalidades que permitem a integração e manipulação de dados do ambiente uMov.me. Algumas das principais funcionalidades incluem: Manutenção de cadastros customizáveis (Custom Entity): permite consultar, incluir e atualizar registros nos cadastros customizáveis. Gerenciamento de agentes: permite a criação, consulta, atualização e remoção de agentes (usuários). Gerenciamento de locais de atendimento (ServiceLocal): permite a criação, consulta, atualização e remoção de locais de atendimento. Gerenciamento de agendas (Schedule): permite a criação, consulta, atualização e remoção de agendas e eventos. Gerenciamento de itens (Item): permite a criação, consulta, atualização e remoção de itens e seus dados relacionados. Além dessas funcionalidades, a API uMov.me também suporta paginação, filtragem de resultados, tratamento de erros e limites de requisições simultâneas para garantir uma melhor experiência de integração."}
+
+{"prompt": "Como posso utilizar parâmetros nas requisições da API uMov.me?", "completion": "Você pode utilizar parâmetros nas requisições da API uMov.me para filtrar, ordenar ou paginar resultados de consultas. Para enviar parâmetros na requisição, adicione-os à URL da requisição, no formato de pares chave-valor, separados por '&'. Por exemplo: `GET https://api.umov.me/CenterWeb/api/{$apiKey}/agent.xml?name=fulano&active=true` Neste exemplo, a requisição está pedindo todos os agentes disponíveis cujo nome contenha a palavra 'fulano' (name=fulano) e que estejam ativos (active=true). Além disso, para paginar resultados, você pode usar o parâmetro 'paging.page' na requisição, informando o número da página desejada: `GET https://api.umov.me/CenterWeb/api/{$apiKey}/schedule.xml?paging.page=5` Ao utilizar parâmetros nas requisições, você pode refinar e otimizar suas consultas e obter resultados mais específicos de acordo com suas necessidades."}
+
+{"prompt": "Como posso tratar erros ao usar a API uMov.me?", "completion": "Ao usar a API uMov.me, você pode encontrar erros que serão indicados pelos códigos de status HTTP retornados nas respostas das requisições. Alguns dos códigos de status HTTP mais comuns que a API pode retornar incluem: 200: retorno OK para uma consulta (GET) ou operação de atualização de dados com sucesso. 201: retorno indicando a criação de um novo registro, usado para inserção de dados (requisições POST para inclusão de dados). 400: request mal realizado, retornado quando o cliente executa uma chamada sem usar os parâmetros esperados, por exemplo. 401: não autorizado, normalmente quando a chave de API uMov.me não está correta. 404: quando pesquisado por um registro indicando um recurso não encontrado."}
+
+{"prompt": "Como posso buscar uma lista de registros de um cadastro customizável?", "completion": "Para buscar uma lista de registros de um cadastro customizável, você deve realizar uma requisição GET para a seguinte URL: `/CenterWeb/api/{$apiKey}/customEntity/{id_cadastro}/customEntityEntry.xml`. Você pode refinar a pesquisa adicionando parâmetros à requisição, como por exemplo, pesquisar por um registro com descrição igual a 134: `/CenterWeb/api/{$apiKey}/customEntity/{id_cadastro}/customEntityEntry.xml?description=134`. A resposta conterá o total de registros retornados e uma lista simples, sem detalhes de cada registro, incluindo o ID do registro no uMov.me e o link, que pode ser usado para recuperar os dados específicos desse registro."}
+
+{"prompt": "Como posso buscar informações de um registro específico do cadastro customizável?", "completion": "Para buscar informações de um registro específico do cadastro customizável, você deve realizar uma requisição GET para a seguinte URL: `/CenterWeb/api/{$apiKey}/customEntity/{id_cadastro}/customEntityEntry/{id_registro}.xml`. A resposta incluirá informações detalhadas sobre o registro, como ID, descrição, identificador alternativo, estado (ativo ou inativo) e os campos customizáveis vinculados ao registro do cadastro customizável."}
+
+{"prompt": "O que é um registro do cadastro customizável e quais são seus campos principais?", "completion": "Um registro do cadastro customizável é um elemento dentro de um cadastro customizável no uMov.me, que permite armazenar e gerenciar informações específicas e personalizadas. Os campos principais de um registro do cadastro customizável incluem: 1. 'description': a descrição do registro; 2. 'alternativeIdentifier': um identificador que possibilita a relação com outros sistemas (legados); 3. 'id': o identificador interno do registro no uMov.me; 4. 'active': indica se o registro está ativo ou inativo, podendo receber valores 'true' ou 'false'; e 5. 'customFields': uma lista de campos customizáveis vinculados ao registro do cadastro customizável."}
+
+{"prompt": "Como posso atualizar um registro do cadastro customizável?", "completion": "Para atualizar um registro do cadastro customizável, você deve realizar uma requisição PUT para a seguinte URL: `/CenterWeb/api/{$apiKey}/customEntity/{id_cadastro}/customEntityEntry/{id_registro}.xml`. No corpo da requisição, inclua os campos que deseja atualizar, como 'description', 'alternativeIdentifier', 'active' e/ou os valores dos 'customFields'. A resposta da requisição indicará se a atualização foi bem-sucedida ou se ocorreu algum erro durante o processo."}
+
+{"prompt": "Como posso adicionar um novo registro a um cadastro customizável?", "completion": "Para adicionar um novo registro a um cadastro customizável, você deve realizar uma requisição POST para a seguinte URL: `/CenterWeb/api/{$apiKey}/customEntity/{id_cadastro}/customEntityEntry.xml`. No corpo da requisição, inclua os campos necessários, como 'description', 'alternativeIdentifier', 'active' e os valores dos 'customFields'. A resposta da requisição conterá informações sobre o sucesso da operação e o ID do novo registro criado no uMov.me."}
+
+{"prompt": "O que significa o campo 'customFields' em um registro do cadastro customizável?", "completion": "O campo 'customFields' em um registro do cadastro customizável é uma lista que contém a relação de valores dos campos customizáveis vinculados ao cadastro customizável. Esses campos permitem armazenar informações personalizadas e específicas para cada registro do cadastro customizável. A consulta, atualização e inclusão do campo customizável deve ser feita através do identificador alternativo do campo. Todos os campos customizáveis vinculados ao cadastro aparecerão na consulta."}
+
+{"prompt": "Como posso incluir um registro do cadastro customizável?", "completion": "Para incluir um registro do cadastro customizável, você deve realizar uma requisição POST para a seguinte URL: `/CenterWeb/api/{$apiKey}/customEntity/{id_cadastro}/customEntityEntry.xml`. No corpo da requisição, inclua os campos obrigatórios e opcionais, como 'description', 'alternativeIdentifier' e os valores dos 'customFields'. Por exemplo, em formato XML: `<customEntityEntry><description>Vettel</description><alternativeIdentifier>1</alternativeIdentifier><customFields><NroKart>1</NroKart><Equipe>Red Bull</Equipe></customFields></customEntityEntry>`. A resposta da requisição conterá informações sobre o sucesso da operação e o ID do novo registro criado no uMov.me."}
+
+{"prompt": "Como posso realizar a inclusão em lote de registros do cadastro customizável?", "completion": "Para realizar a inclusão em lote de registros do cadastro customizável, você deve enviar uma requisição POST para a seguinte URL: `/CenterWeb/api/{$apiKey}/batch/customEntity/alternativeIdentifier/{IdAlternativo}/customEntityEntries.xml`. No corpo da requisição, inclua uma lista de registros com os campos obrigatórios e opcionais, como 'description', 'alternativeIdentifier' e os valores dos 'customFields'. Por exemplo, em formato XML: `<customEntityEntries><customEntityEntry><active>true</active><description>Exemplo 1</description><alternativeIdentifier>exemplo_1</alternativeIdentifier><customFields><id_alternativo_custom_field>valor do custom field</id_alternativo_custom_field></customFields></customEntityEntry><customEntityEntry><active>true</active><description>Exemplo 2</description><alternativeIdentifier>exemplo_1</alternativeIdentifier><customFields><id_alternativo_custom_field>valor do custom field</id_alternativo_custom_field></customFields></customEntityEntry></customEntityEntries>`. A resposta da requisição indicará se a inclusão em lote foi bem-sucedida ou se ocorreu algum erro durante o processo."}
+
+{"prompt": "Como posso pesquisar registros do cadastro customizável com um parâmetro específico?", "completion": "Para pesquisar registros do cadastro customizável com um parâmetro específico, você deve realizar uma requisição GET para a seguinte URL: `/CenterWeb/api/{$apiKey}/customEntity/{id_cadastro}/customEntityEntry.xml`. Para refinar a pesquisa com base em um parâmetro específico, adicione o parâmetro na requisição HTTP. Por exemplo, se você deseja pesquisar por um registro com descrição igual a 134, a URL será: `/CenterWeb/api/{$apiKey}/customEntity/{id_cadastro}/customEntityEntry.xml?description=134`. A resposta da requisição conterá informações sobre o total de registros retornados e uma lista com os registros encontrados, incluindo o ID do registro no uMov.me e o link para recuperar os dados específicos desse registro."}
+
+{"prompt": "Como posso buscar um registro específico do cadastro customizável?", "completion": "Para buscar um registro específico do cadastro customizável, realize uma requisição GET para a seguinte URL: `/CenterWeb/api/{$apiKey}/customEntity/{id_cadastro}/customEntityEntry/{id_registro}.xml`. Substitua `{id_cadastro}` pelo ID do cadastro customizável e `{id_registro}` pelo ID do registro que deseja consultar. A resposta da requisição conterá informações detalhadas sobre o registro, como 'id', 'description', 'alternativeIdentifier', 'active' e os valores dos 'customFields'. Por exemplo, em formato XML: `<customEntityEntry><id>2576</id><description>Alonso</description><alternativeIdentifier>2</alternativeIdentifier><active>true</active><customFields><NroKart>12</NroKart><Equipe>Ferrari</Equipe></customFields></customEntityEntry>`."}
+
+{"prompt": "O que significa o campo 'active' em um registro do cadastro customizável?", "completion": "O campo 'active' em um registro do cadastro customizável indica se o registro está ativo ou inativo no sistema uMov.me. Ele pode receber os valores 'true' ou 'false', onde 'true' significa que o registro está ativo e 'false' indica que o registro está inativo. Registros inativos podem não ser exibidos em algumas consultas ou operações no sistema, dependendo da configuração e das regras de negócio aplicadas."}
+
+{"prompt": "Como posso buscar a lista de campos customizáveis para uma entidade específica?", "completion": "Para buscar a lista de campos customizáveis para uma entidade específica, você deve realizar uma requisição GET para a seguinte URL: `/CenterWeb/api/{$apiKey}/{nomeEntidade}/{idEntidade}/customField.xml`, onde `{nomeEntidade}` pode ser 'agent', 'serviceLocal', 'item' ou 'schedule' e `{idEntidade}` é o identificador interno da entidade informada em `{nomeEntidade}`. A resposta da requisição conterá o total de registros retornados e uma lista com os campos customizáveis encontrados, incluindo o ID do registro no uMov.me e o link para recuperar os dados específicos desse registro."}
+
+{"prompt": "Como posso refinar a pesquisa de campos customizáveis com base em parâmetros específicos?", "completion": "Para refinar a pesquisa de campos customizáveis com base em parâmetros específicos, adicione os parâmetros desejados na requisição HTTP. Por exemplo, para buscar campos customizáveis com a descrição contendo a palavra 'campo' e que estejam ativos, a URL seria: `/CenterWeb/api/{$apiKey}/{nomeEntidade}/{idEntidade}/customField.xml?description=campo&active=true`. A resposta da requisição incluirá informações sobre o total de registros retornados e uma lista com os campos customizáveis que atendem aos critérios de pesquisa, contendo o ID do registro no uMov.me e o link para recuperar os dados específicos desse registro."}
+
+{"prompt": "O que significa o campo 'viewQueryOnMobile' na descrição de um campo customizável?", "completion": "O campo 'viewQueryOnMobile' na descrição de um campo customizável indica se é permitido consultar o campo no aplicativo móvel uMov.me. Ele pode receber dois valores: '0' (zero), que significa que a consulta do campo customizável no celular não é permitida, e '1' (um), que indica que a consulta do campo customizável no celular é permitida."}
+
+{"prompt": "Quais são os valores possíveis para o campo 'entity' na descrição de um campo customizável?", "completion": "O campo 'entity' na descrição de um campo customizável indica qual entidade (tabela) o campo referencia. Os valores possíveis são: 1 = Agente, 2 = Local Atendimento, 3 = Item, 4 = Tarefa."}
+
+{"prompt": "Como posso incluir um registro para um cadastro customizável no sistema?", "completion": "Para incluir um registro para um cadastro customizável no sistema, envie uma requisição POST para a URL: `/CenterWeb/api/{$apiKey}/customEntity/{id_cadastro}/customEntityEntry.xml`. Inclua no corpo da requisição o XML com as informações do registro, seguindo o exemplo: `<customEntityEntry><description>Vettel</description><alternativeIdentifier>1</alternativeIdentifier><customFields><NroKart>1</NroKart><Equipe>Red Bull</Equipe></customFields></customEntityEntry>`. Substitua os valores adequados para o seu caso."}
+
+{"prompt": "O que significa o campo 'fieldType' na descrição de um campo customizável?", "completion": "O campo 'fieldType' na descrição de um campo customizável indica o tipo do campo. Atualmente, o único tipo de campo customizável disponível é o do tipo Lista, que deve ser informado como 'L'."}
+
+{"prompt": "Como posso buscar um registro específico de um cadastro customizável?", "completion": "Para buscar um registro específico de um cadastro customizável, realize uma requisição GET para a URL: `/CenterWeb/api/{$apiKey}/customEntity/{id_cadastro}/customEntityEntry/{id_registro}.xml`, onde `{id_cadastro}` é o identificador do cadastro e `{id_registro}` é o identificador do registro desejado. A resposta da requisição conterá as informações do registro solicitado."}
+
+{"prompt": "Qual é a finalidade do campo 'alternativeIdentifier' na descrição de um campo customizável?", "completion": "O campo 'alternativeIdentifier' na descrição de um campo customizável é um identificador que possibilita a relação com outros sistemas (legados). Ele é útil para integrar os campos customizáveis do uMov.me com outras plataformas, facilitando o rastreamento e a sincronização dos dados entre os sistemas."}
+
+{"prompt": "Como posso realizar uma busca por lista de registros do cadastro customizável?", "completion": "Para realizar uma busca por lista de registros do cadastro customizável, envie uma requisição GET para a URL: `/CenterWeb/api/{$apiKey}/customEntity/{id_cadastro}/customEntityEntry.xml`, onde `{id_cadastro}` é o identificador do cadastro customizável. A resposta da requisição conterá o total de registros retornados e uma lista com os registros encontrados, incluindo o ID do registro no uMov.me e o link para recuperar os dados específicos desse registro."}
+
+{"prompt": "Como posso buscar um campo customizável usando o identificador interno?", "completion": "Para buscar um campo customizável usando o identificador interno, realize uma requisição GET para a URL: `/CenterWeb/api/{$apiKey}/{nomeEntidade}/{idEntidade}/customField/{$id}.xml`, onde `{nomeEntidade}` pode ser agent, serviceLocal, item ou schedule, `{idEntidade}` é o identificador interno da entidade informada e `{$id}` é o identificador do campo customizável."}
+
+{"prompt": "Como posso buscar um campo customizável usando o identificador alternativo?", "completion": "Para buscar um campo customizável usando o identificador alternativo, realize uma requisição GET para a URL: `/CenterWeb/api/{$apiKey}/{nomeEntidade}/{idEntidade}/customField/alternativeIdentifier/{$idalternativo}.xml`, onde `{nomeEntidade}` pode ser agent, serviceLocal, item ou schedule, `{idEntidade}` é o identificador interno da entidade informada e `{$idalternativo}` é o identificador alternativo do campo customizável."}
+
+{"prompt": "O que significa o campo 'internalValue' na descrição de um Custom Field Value?", "completion": "O campo 'internalValue' na descrição de um Custom Field Value refere-se ao valor interno do campo customizável. Ele possui um tamanho máximo de 100 caracteres e é obrigatório. É a descrição do campo customizável, e pode ser utilizado para pesquisar por nome do campo customizável."}
+
+{"prompt": "O que significa o campo 'externalValue' na descrição de um Custom Field Value?", "completion": "O campo 'externalValue' na descrição de um Custom Field Value refere-se ao valor externo do campo customizável. Ele possui um tamanho máximo de 100 caracteres e é obrigatório. O valor externo é exibido em tela para o usuário e pode ser utilizado para pesquisar por nome do campo customizável."}
+
+{"prompt": "Como posso incluir ou alterar valores de campos customizáveis usando o identificador interno?", "completion": "Para incluir ou alterar valores de campos customizáveis usando o identificador interno, realize uma requisição POST para a URL: `/CenterWeb/api/{$apiKey}/{nomeEntidade}/{idEntidade}/customField/{$id}.xml`, onde `{nomeEntidade}` pode ser agent, serviceLocal, item ou schedule, `{idEntidade}` é o identificador interno da entidade informada e `{$id}` é o identificador do campo customizável. Inclua no corpo da requisição o XML com os valores dos campos customizáveis a serem incluídos ou alterados."}
+
+{"prompt": "Como posso incluir ou alterar valores de campos customizáveis usando o identificador alternativo?", "completion": "Para incluir ou alterar valores de campos customizáveis usando o identificador alternativo, realize uma requisição POST para a URL: `/CenterWeb/api/{$apiKey}/{nomeEntidade}/{idEntidade}/customField/alternativeIdentifier/{$altId}.xml`, onde `{nomeEntidade}` pode ser agent, serviceLocal, item ou schedule, `{idEntidade}` é o identificador interno da entidade informada e {$altId} é o identificador alternativo do campo customizável. Inclua no corpo da requisição o XML com os valores dos campos customizáveis a serem incluídos ou alterados."}
+
+{"prompt": "Como posso realizar a inclusão ou alteração em lote de valores de campos customizáveis?", "completion": "Para realizar a inclusão ou alteração em lote de valores de campos customizáveis, envie uma requisição POST para a URL: `/CenterWeb/api/{$apiKey}/batch/{nomeEntidade}/alternativeIdentifier/{idAltEntidade}/customFields.xml`, onde `{nomeEntidade}` pode ser agent, serviceLocal, item ou schedule, e `{idAltEntidade}` é o identificador alternativo da entidade informada. Inclua no corpo da requisição o XML com os valores dos campos customizáveis a serem incluídos ou alterados."}
+
+{"prompt": "Quais são as entidades suportadas para campos customizáveis?", "completion": "As entidades suportadas para campos customizáveis são: agent (agente), serviceLocal (local de atendimento), item (item) e schedule (agenda). Essas entidades podem ser usadas nas requisições para buscar, incluir ou alterar campos customizáveis e seus valores."}
+
+{"prompt": "O que acontece quando solicito a criação ou alteração de valores de campos customizáveis?", "completion": "Ao solicitar a criação ou alteração de valores de campos customizáveis, todos os valores existentes serão substituídos pelos novos valores informados na requisição. Por exemplo, se um campo customizável possui três valores e a requisição inclui apenas dois novos valores, o campo customizável ficará com apenas dois valores, mesmo que estes sejam diferentes dos originais."}
+
+{"prompt": "Qual é a estrutura do XML para a inclusão ou alteração em lote de valores de campos customizáveis?", "completion": "A estrutura do XML para a inclusão ou alteração em lote de valores de campos customizáveis é a seguinte: `<customFields><customField><alternativeIdentifier>identificadoralternativo1</alternativeIdentifier><customFieldValues><customFieldValue><internalValue>valorinterno1</internalValue><externalValue>valorexterno1</externalValue></customFieldValue></customFieldValues></customField>...<customField><alternativeIdentifier>identificadoralternativo2</alternativeIdentifier><customFieldValues><customFieldValue><internalValue>valorinterno2</internalValue><externalValue>valorexterno2</externalValue></customFieldValue></customFieldValues></customField></customFields>`. Substitua os valores adequados para o seu caso."}
+
+{"prompt": "Relação de Item Group (Grupo)", "completion": "A API de grupo permite interagir com a parte O Quê? do uMov.me, possibilitando gerenciar os grupos de itens."}
+
+{"prompt": "Descrição de um Grupo", "completion": "Os campos de um grupo incluem: active (ativo/inativo), alternativeIdentifier (identificador alternativo), description (descrição) e id (identificador interno)."}
+
+{"prompt": "Busca por lista de Grupos", "completion": "Utilize GET /CenterWeb/api/{$apiKey}/group.xml para buscar a lista de grupos. Refine a pesquisa com parâmetros como 'description' e 'active'."}
+
+{"prompt": "Exemplo de busca com parâmetros", "completion": "GET /CenterWeb/api/{$apiKey}/group.xml?description=xyz&active=true busca grupos com a palavra 'xyz' na descrição e que estejam ativos."}
+
+{"prompt": "Resposta da busca de grupos", "completion": "A resposta inclui o total de registros retornados e uma lista simples com o Id e o link para recuperar dados específicos de cada registro."}
+
+{"prompt": "Busca por um Grupo específico", "completion": "Use GET /CenterWeb/api/{$apiKey}/group/{$id}.xml para obter dados de um grupo específico do sistema."}
+
+{"prompt": "Exemplo de retorno de grupo específico", "completion": "A resposta inclui campos como 'id', 'description', 'active' e 'alternativeIdentifier'."}
+
+{"prompt": "Inclusão de um Grupo", "completion": "Utilize POST /CenterWeb/api/{$apiKey}/group.xml para incluir um novo grupo no sistema."}
+
+{"prompt": "Campos obrigatórios para inclusão", "completion": "Ao criar um novo grupo, preencha o campo obrigatório 'description'."}
+
+{"prompt": "Exemplo de requisição para inclusão", "completion": "<group><active>true</active><description>Novo Grupo</description><alternativeIdentifier>33456745</alternativeIdentifier></group> é um exemplo de requisição em XML para criar um grupo ativo com a descrição 'Novo Grupo' e o identificador alternativo '33456745'."}
+
+{"prompt": "Identificador interno e alternativo", "completion": "O identificador interno (id) é gerado pelo uMov.me, enquanto o identificador alternativo (alternativeIdentifier) pode ser usado para relacionar com outros sistemas."}
+
+{"prompt": "Tamanho e obrigatoriedade dos campos", "completion": "O campo 'description' tem tamanho máximo de 100 caracteres e é obrigatório; 'active' e 'id' não têm tamanho máximo e não são obrigatórios."}
+
+{"prompt": "Ativando ou desativando um grupo", "completion": "Use o campo 'active' para indicar se um grupo está ativo ('true') ou inativo ('false')."}
+
+{"prompt": "Integração com outros sistemas", "completion": "Utilize o campo 'alternativeIdentifier' para estabelecer relação com sistemas legados ou externos."}
+
+{"prompt": "Pesquisa de grupos por parâmetros", "completion": "Adicione parâmetros na requisição HTTP para filtrar e refinar a pesquisa de grupos, facilitando a busca por informações específicas."}
+
+{"prompt": "Atualização de um Grupo específico", "completion": "Use POST /CenterWeb/api/{$apiKey}/group/{$id}.xml para atualizar um grupo específico do sistema, fornecendo as informações necessárias."}
+
+{"prompt": "Exemplo de requisição para atualização de grupo", "completion": "<group><description>Novo Grupo</description></group> é um exemplo de requisição em XML para atualizar a descrição do grupo com o id informado."}
+
+{"prompt": "Busca por um Grupo específico com alternativeIdentifier", "completion": "Use GET /CenterWeb/api/{$apiKey}/group/alternativeIdentifier{$alternativeIdentifier}.xml para buscar dados de um grupo específico do sistema através do seu identificador alternativo."}
+
+{"prompt": "Exemplo de retorno de grupo com alternativeIdentifier", "completion": "A resposta inclui campos como 'id', 'description', 'alternativeIdentifier' e 'active'."}
+
+{"prompt": "Item (Item)", "completion": "A API de item permite interagir com a parte O Quê? do uMov.me, possibilitando gerenciar itens, como categoria de item, subgrupo, imagem e campos personalizados."}
+
+{"prompt": "Descrição de um Item", "completion": "Os campos de um item incluem: itemCategory, subGroup, active, alternativeIdentifier, description, id, image e customFields."}
+
+{"prompt": "Busca por lista de Itens", "completion": "Utilize GET /CenterWeb/api/{$apiKey}/item.xml para buscar a lista de itens. Refine a pesquisa com parâmetros como 'description' e 'active'."}
+
+{"prompt": "Exemplo de busca de itens com parâmetros", "completion": "GET /CenterWeb/api/{$apiKey}/item.xml?description=xyz&active=true busca itens com a palavra 'xyz' na descrição e que estejam ativos."}
+
+{"prompt": "Resposta da busca de itens", "completion": "A resposta inclui o total de registros retornados e uma lista simples com o Id e o link para recuperar dados específicos de cada registro."}
+
+{"prompt": "Busca por um Item específico", "completion": "Use GET /CenterWeb/api/{$apiKey}/item/{$id}.xml para obter dados de um item específico do sistema."}
+
+{"prompt": "Exemplo de retorno de item específico", "completion": "A resposta inclui campos como 'id', 'subGroup', 'description', 'active', 'alternativeIdentifier', 'itemCategory' e 'customFields'."}
+
+{"prompt": "Integração com campos personalizados", "completion": "Os campos personalizados vinculados ao item podem ser consultados, atualizados e incluídos através do identificador alternativo do campo."}
+
+{"prompt": "Tamanho e obrigatoriedade dos campos do item", "completion": "O campo 'description' tem tamanho máximo de 100 caracteres e é obrigatório; 'active' e 'id' não têm tamanho máximo e não são obrigatórios."}
+
+{"prompt": "Identificador interno e alternativo do item", "completion": "O identificador interno (id) é gerado pelo uMov.me, enquanto o identificador alternativo (alternativeIdentifier) pode ser usado para relacionar com outros sistemas."}
+
+{"prompt": "Pesquisa de itens por parâmetros", "completion": "Adicione parâmetros na requisição HTTP para filtrar e refinar a pesquisa de itens, facilitando a busca por informações específicas."}
+
+{"prompt": "Inclusão de um Item", "completion": "Use POST /CenterWeb/api/{$apiKey}/item.xml para incluir um item no sistema, fornecendo as informações necessárias, como descrição, subgrupo, categoria e campos personalizados."}
+
+{"prompt": "Exemplo de requisição de inclusão de item", "completion": "A requisição em XML inclui campos como 'subGroup', 'description', 'active', 'image', 'alternativeIdentifier', 'itemCategory' e 'customFields'."}
+
+{"prompt": "Identificador interno e alternativo do subgrupo", "completion": "Utilize o identificador interno do subgrupo cadastrado em seu sistema através do http://center.umov.me/CenterWeb/subGroup."}
+
+{"prompt": "Identificador interno e alternativo da categoria de item", "completion": "Utilize o identificador interno da categoria de item cadastrada em seu sistema através do http://center.umov.me/CenterWeb/itemCategory."}
+
+{"prompt": "Vinculação de categoria e subgrupo através de identificador alternativo", "completion": "É possível vincular categoria e subgrupo de itens através do identificador alternativo ao incluir um item."}
+
+{"prompt": "Exemplo de requisição de inclusão com identificador alternativo", "completion": "A requisição em XML inclui campos como 'subGroup', 'description', 'active', 'image', 'alternativeIdentifier', 'itemCategory' e 'customFields', com identificadores alternativos para subgrupo e categoria de item."}
+
+{"prompt": "Campo obrigatório na inclusão de item", "completion": "O campo 'description' é obrigatório ao incluir um item no sistema."}
+
+{"prompt": "Campo 'active' na inclusão de item", "completion": "O campo 'active' indica se o item está ativo ou não e pode receber valores 'true' ou 'false'."}
+
+{"prompt": "Campo 'image' na inclusão de item", "completion": "O campo 'image' permite vincular uma imagem ao item através de uma URL, utilizando a tag 'imageUrlImport'."}
+
+{"prompt": "Campo 'customFields' na inclusão de item", "completion": "O campo 'customFields' permite incluir valores para campos personalizados vinculados ao item."}
+
+{"prompt": "Exemplo de requisição de inclusão com campos personalizados", "completion": "A requisição em XML inclui campos personalizados, como 'Estoque' e 'Preço', com valores específicos."}
+
+{"prompt": "Criar item com subgrupo ativo", "completion": "Ao criar um item, é possível indicar que o subgrupo está ativo, fornecendo o identificador do subgrupo no sistema de origem."}
+
+{"prompt": "Inclusão de item com identificador alternativo", "completion": "Ao incluir um item, é possível fornecer o identificador alternativo, permitindo a relação com outros sistemas."}
+
+{"prompt": "Subgrupo e categoria de item na requisição de inclusão", "completion": "A requisição de inclusão de item deve incluir o subgrupo e a categoria de item, utilizando os identificadores internos ou alternativos."}
+
+{"prompt": "Criação de item com subgrupo e categoria de item", "completion": "Ao criar um item, forneça as informações de subgrupo e categoria de item, seja através dos identificadores internos ou alternativos."}
+
+{"prompt": "Adicionar item com imagem", "completion": "Para adicionar um item com imagem, inclua o campo 'image' na requisição de inclusão, utilizando a tag 'imageUrlImport' para fornecer a URL da imagem."}
+
+{"prompt": "Campos personalizados na requisição de inclusão de item", "completion": "Inclua os campos personalizados na requisição de inclusão de item usando o campo 'customFields', fornecendo os valores específicos para cada campo."}
+
+{"prompt": "Utilização de identificador alternativo para categoria de item", "completion": "Na inclusão de um item, é possível utilizar o identificador alternativo da categoria de item, fornecendo o valor dentro do campo 'itemCategory'."}
+
+{"prompt": "Utilização de identificador alternativo para subgrupo", "completion": "Na inclusão de um item, é possível utilizar o identificador alternativo do subgrupo, fornecendo o valor dentro do campo 'subGroup'."}
+
+{"prompt": "Exemplo de requisição de inclusão com campos obrigatórios", "completion": "A requisição de inclusão de item em XML deve conter, no mínimo, o campo 'description', que é obrigatório, além de campos como 'subGroup', 'active', 'itemCategory' e outros campos opcionais."}
+
+{"prompt": "Atualização de um item específico utilizando ID interno", "completion": "Para atualizar um item específico usando o ID interno, faça uma requisição POST no seguinte formato: /CenterWeb/api/{$apiKey}/item/{$id}.xml. Inclua os campos que deseja atualizar no corpo da requisição em XML."}
+
+{"prompt": "Atualização de um item específico utilizando identificador alternativo", "completion": "Para atualizar um item específico usando o identificador alternativo, faça uma requisição POST no seguinte formato: /CenterWeb/api/{$apiKey}/item/alternativeIdentifier/{$alternativeIdentifier}.xml. Inclua os campos que deseja atualizar no corpo da requisição em XML."}
+
+{"prompt": "Inclusão de itens em lote", "completion": "Para incluir itens em lote, faça uma requisição POST para /CenterWeb/api/{$apiKey}/batch/items.xml. Inclua a lista de itens no corpo da requisição em XML, usando a tag '<items>'. Cada item deve estar dentro de uma tag '<item>' e pode ser replicado quantas vezes for necessário."}
+
+{"prompt": "Abortar operação em caso de erro na inclusão de itens em lote", "completion": "Se algum erro ocorrer durante a inclusão de itens em lote, toda a operação será abortada e nenhum item será inserido."}
+
+{"prompt": "Incluir uma nova categoria de item no sistema", "completion": "POST /CenterWeb/api/{$apiKey}/itemCategory.xml"}
+
+{"prompt": "Buscar lista de Categoria de Item", "completion": "GET /CenterWeb/api/{$apiKey}/itemCategory.xml"}
+
+{"prompt": "Refinar pesquisa de categorias de itens com descrição 'xyz' e que estejam ativos", "completion": "GET /CenterWeb/api/{$apiKey}/itemCategory.xml?description=xyz&active=true"}
+
+{"prompt": "Buscar uma Categoria de Item específica", "completion": "GET /CenterWeb/api/{$apiKey}/itemCategory/{$id}.xml"}
+
+{"prompt": "Exemplo de retorno de uma categoria de item específica em XML", "completion": "<itemCategory><id>5421</id><description>xyz</description><active>false</active> <alternativeIdentifier>id_alternativo</alternativeIdentifier></itemCategory>"}
+
+{"prompt": "Indica se uma categoria de item está no estado ativo ou não", "completion": "active"}
+
+{"prompt": "Descrição de sua categoria de item", "completion": "description"}
+
+{"prompt": "Id do registro no uMov.me", "completion": "id"}
+
+{"prompt": "Exemplo de resultado de uma requisição feita em XML para buscar lista de Categoria de Item", "completion": "<result> <resourceName>itemCategory</resourceName> <size>2</size><entries><entry id='5421' link='/itemCategory/2870.xml'/><entry id='5422' link='/itemCategory/2871.xml'/> <entries></result>"}
+
+{"prompt": "Exemplo de requisição em XML para incluir uma categoria de item no sistema", "completion": "<itemCategory><active>true</active><description>Nova Categoria</description> <alternativeIdentifier>33456745</alternativeIdentifier></itemCategory>"}
+
+{"prompt": "Para incluir uma categoria de item, é necessário fornecer um mínimo de informações, como a descrição da categoria", "completion": "Descrição obrigatória"}
+
+{"prompt": "Enviar parâmetros para a API uMov.me", "completion": "Adicionar parâmetros na requisição HTTP"}
+
+{"prompt": "Exemplo de requisição para buscar categorias de itens com descrição 'xyz' e que estejam ativos", "completion": "GET /CenterWeb/api/{$apiKey}/itemCategory.xml?description=xyz&active=true"}
+
+{"prompt": "Recuperar os dados específicos de um registro de categoria de item", "completion": "GET /CenterWeb/api/{$apiKey}/itemCategory/{$id}.xml"}
+
+{"prompt": "Total de registro retornados e uma lista simples, sem detalhes de cada registro retornado", "completion": "Resultado da requisição"}
